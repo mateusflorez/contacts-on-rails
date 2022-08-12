@@ -1,4 +1,4 @@
-### Recipes on Rails
+### Contacts on Rails
 > Status: Incomplete ⚠️
 
 <table>

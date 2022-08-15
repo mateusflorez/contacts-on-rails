@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum:50}
   validates :password, length: {minimum:6}
+  validates :password_confirmation, presence: true
   validates :email, presence: true, length: {maximum: 255},
                                     format: {with: VALID_EMAIL_REGEX},
                                     uniqueness: {case_sensitive: true}

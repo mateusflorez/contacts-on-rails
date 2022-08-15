@@ -8,8 +8,23 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <%= link_to 'Sign-up', new_user_path, class: 'btn btn-warning' %>
+          <% if !user_signed_in? %>
+            <%= link_to 'Login', login_path, class: 'btn btn-outline-light me-2' %>
+            <%= link_to 'Sign-up', new_user_path, class: 'btn btn-warning' %>
+          <% else %>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome, <%= current_user.name %>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><%= link_to 'My profile', current_user, class: 'dropdown-item' %></li>
+                    <li><%= link_to 'Edit', '#', class: 'dropdown-item' %></li>
+                    <li><%= link_to 'Log out', logout_path, method: :delete, class: 'dropdown-item' %></li>
+                  </ul>
+                </li>
+              </ul>
+          <% end %>
         </div>
       </div>
     </div>

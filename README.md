@@ -17,10 +17,16 @@
   <tr>
     <td>Database</td>
     <td>
-      SQLite3 (dev) / PostgreSQL (prod)
+      PostgreSQL
     </td>
   </tr>
 </table>
+
+## Functionalities:
++ User sign up and login
++ Password recovery using email
++ Contacts management
++ Profile customization
 
 ## Instalation instructions:
 ```

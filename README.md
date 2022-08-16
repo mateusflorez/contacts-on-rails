@@ -1,5 +1,5 @@
 ### Contacts on Rails
-> Status: Incomplete ⚠️
+> Status: Complete :heavy_check_mark:
 
 <table>
   <tr>

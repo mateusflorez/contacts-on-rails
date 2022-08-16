@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
 
   def new
     redirect_to user_path(current_user) if user_signed_in?
@@ -9,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in(user)
-      redirect_to root_path
+      redirect_to contacts_url
     else
       flash.now[:danger] = 'Invalid email or password'
       render 'new'

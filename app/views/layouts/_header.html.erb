@@ -18,8 +18,8 @@
                     Welcome, <%= current_user.name %>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><%= link_to 'My profile', current_user, class: 'dropdown-item' %></li>
-                    <li><%= link_to 'Edit', '#', class: 'dropdown-item' %></li>
+                    <li><%= link_to 'My profile', edit_user_path(current_user), class: 'dropdown-item' %></li>
+                    <li><%= link_to 'Contacts', contacts_path, class: 'dropdown-item' %></li>
                     <li><%= link_to 'Log out', logout_path, method: :delete, class: 'dropdown-item' %></li>
                   </ul>
                 </li>

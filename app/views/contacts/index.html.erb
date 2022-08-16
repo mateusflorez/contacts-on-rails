@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h1>My contacts</h1>
+  </div>
 
-<h1>Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.phone %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <%= link_to 'New contact', new_contact_path(current_user), class: 'btn btn-success mb-3' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th colspan="2">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @contacts.empty? %>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>No contacts registered yet.</h3>
+              <%= link_to 'click here', new_contact_path(current_user) %> to register a new contact
+            </td>
+          </tr>
+        <% end %>
+        <% @contacts.each do |c| %>
+        <tr>
+          <td>
+            <%= c.name %>
+          </td>
+          <td>
+            <%= c.phone %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_contact_path(c), class: 'btn btn-warning' %>
+          </td>
+          <td>
+            <%= link_to 'Delete', contact_path(c), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

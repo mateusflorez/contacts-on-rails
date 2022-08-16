@@ -24,9 +24,8 @@
 
 ## Functionalities:
 + User sign up and login
-+ Password recovery using email
 + Contacts management
-+ Profile customization
++ Profile edit
 
 ## Instalation instructions:
 ```

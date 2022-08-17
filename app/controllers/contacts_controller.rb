@@ -24,7 +24,7 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
-      flash[:success] = 'Contato successfuly created.'
+      flash[:success] = 'Contact successfuly created.'
       redirect_to contacts_path
     else
       render 'new'
@@ -34,7 +34,7 @@ class ContactsController < ApplicationController
   def update
     @contact = current_user.contacts.find(params[:id])
     if @contact.update(contact_params)
-      flash[:success] = 'Contat successfuly updated'
+      flash[:success] = 'Contact successfuly updated'
       redirect_to contacts_path
     else
       render 'edit'
@@ -44,7 +44,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact = current_user.contacts.find(params[:id])
     if @contact.destroy
-      flash[:success] = 'Contat successfuly deleted'
+      flash[:success] = 'Contact successfuly deleted'
       redirect_to contacts_path
     else
       flash[:danger] = 'Contact not found.'
